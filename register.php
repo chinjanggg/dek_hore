@@ -68,29 +68,37 @@
   <form action="register.php" method="post">
     Name <input type="text" name="formName" maxlength="50">
     Surname <input type="text" name="formSurname" maxlength="50"><br>
-    University <input type="text" name"formUni" maxlength="50">
+    University <input type="text" name="formUni" maxlength="50"><br>
     <br><br><input type="submit" name="formSubmit" value="Submit">
   </form>
 
   <?php
   if(isset($_POST['formSubmit']) and $_POST['formSubmit'] == "Submit") {
-    $error = array();
+    $errorMessage = '';
     if(empty($_POST['formName'])) {
-      $error[] = 'Please enter your name.';
+      $errorMessage .= '<li>Please enter name.</li>';
     }
     if(empty($_POST['formSurname'])) {
-      $error[] = 'Please enter your surname.';
+      $errorMessage .= '<li>Please enter surname.</li>';
     }
     if(empty($_POST['formUni'])) {
-      $error[] = 'Please enter your university.';
+      $errorMessage .= '<li>Please enter university.</li>';
     }
-    if(empty($error)) {
+    if(empty($errorMessage)) {
       $varName = $_POST['formName'];
       $varSurname = $_POST['formSurname'];
       $varUni = $_POST['formUni'];
+
+      $fs = fopen("register.csv","a");
+      fwrite($fs,$varName . ", " . $varSurname . ", " . $varUni . "\n");
+      fclose($fs);
+
+      header("Location: register_complete.html");
+      exit;
     }
     else {
-      print_r($error);
+      echo("<p>There was an error with your form:</p>\n");
+      echo("<ul>" . $errorMessage . "</ul>\n");
     }
   }
   ?>
