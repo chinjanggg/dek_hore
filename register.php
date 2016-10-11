@@ -66,9 +66,21 @@
   <!-- registration form-->
   <br><br><br><br><br><br><br><br>
   <form action="register.php" method="post">
-    Name <input type="text" name="formName" maxlength="50">
-    Surname <input type="text" name="formSurname" maxlength="50"><br>
-    University <input type="text" name="formUni" maxlength="50"><br>
+    Name <input type="text" name="formName" maxlength="50"
+      value="<?php if(!empty($_POST['formName'])) { echo htmlentities ($_POST['formName']); }?>">
+    Surname <input type="text" name="formSurname" maxlength="50"
+      value="<?php if(!empty($_POST['formSurname'])) { echo htmlentities ($_POST['formSurname']); }?>"><br>
+    Education <select name="formEdu">
+      <option value=""></option>
+      <option value="highschool" <?php if(!empty($_POST["formEdu"]) and $_POST["formEdu"]=="highschool")
+        echo(" selected=\"selected\"");?>>Highschool</option>
+      <option value="undergrad" <?php if(!empty($_POST["formEdu"]) and $_POST["formEdu"]=="undergrad")
+        echo(" selected=\"selected\"");?>>Undergraduate</option>
+      <option value="grad" <?php if(!empty($_POST["formEdu"]) and $_POST["formEdu"]=="grad")
+        echo(" selected=\"selected\"");?>>Graduate</option>
+    </select>
+    University/School <input type="text" name="formUni" maxlength="50"
+      value="<?php if(!empty($_POST['formUni'])) { echo htmlentities ($_POST['formUni']); }?>"><br>
     <br><br><input type="submit" name="formSubmit" value="Submit">
   </form>
 
@@ -81,16 +93,20 @@
     if(empty($_POST['formSurname'])) {
       $errorMessage .= '<li>Please enter surname.</li>';
     }
+    if(empty($_POST['formEdu'])) {
+      $errorMessage .= '<li>Please enter education.</li>';
+    }
     if(empty($_POST['formUni'])) {
       $errorMessage .= '<li>Please enter university.</li>';
     }
     if(empty($errorMessage)) {
       $varName = $_POST['formName'];
       $varSurname = $_POST['formSurname'];
+      $varEdu = $_POST['formEdu'];
       $varUni = $_POST['formUni'];
 
       $fs = fopen("register.csv","a");
-      fwrite($fs,$varName . ", " . $varSurname . ", " . $varUni . "\n");
+      fwrite($fs,$varName . ", " . $varSurname . ", " . $varEdu . ", " . $varUni . "\n");
       fclose($fs);
 
       header("Location: register_complete.html");
