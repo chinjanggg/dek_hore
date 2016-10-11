@@ -29,7 +29,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Project name</a>
+        <a class="navbar-brand" href="index.html">Project name</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -38,26 +38,26 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
             aria-expanded="false">Information <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Dormitory</a></li>
-              <li><a href="#">Guesthouse</a></li>
-              <li><a href="#">Accommodation</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="dorm.html">Dormitory</a></li>
+              <li><a href="guesthouse.html">Guesthouse</a></li>
+              <li><a href="accom.html">Accommodation</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
             aria-expanded="false">Activity <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Steering</a></li>
-              <li><a href="#">ศูนย์บริการนิสิตนักศึกษา</a></li>
-              <li><a href="#">Past Activities</a></li>
+              <li><a href="steering.html">Steering</a></li>
+              <li><a href="center.html">ศูนย์บริการนิสิตนักศึกษา</a></li>
+              <li><a href="activity.html">Past Activities</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
         <ul class="nav navbar-form navbar-right">
-          <button class="btn btn-signup">Sign up</button>
-          <button class="btn btn-signin">Sign in</button>
+          <a class="btn btn-signup" href="register.php" role="button">Sign up</a>
+          <a class="btn btn-signin" href="signin.php" role="button">Sign in</a>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
