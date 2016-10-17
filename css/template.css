@@ -1,6 +1,15 @@
 .btn-signup {
-  background-color: #F00;
+  background-color: #f7f7f7;
+  color: black;
+}
+.btn-signup:hover {
+  background-color: #e8e8e8;
 }
 .btn-signin {
-  background-color: #00F;
+  background-color: #5fc970;
+  color: white;
+}
+.btn-signin:hover {
+  background-color: #558e4b;
+  color: white;
 }
