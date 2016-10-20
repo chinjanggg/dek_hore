@@ -25,21 +25,23 @@ body {
   height: 500px;
   background-color: #000;
 }
-.second-slide {
+.second-slide, .fourth-slide {
   min-width:600px;
 }
 .first-slide, .third-slide {
-  position: relative;
+  position: absolute;
   height:500px;
   left:-50%;
 }
 
 div.outer {
-    width: 300px; /* some width amount needed */
+    background-color: #000;
+    width: auto; /* some width amount needed */
     margin: 0 auto;
-    overflow: visible;
+    overflow: hidden;
 }
 div.inner {
+    background-color: #000;
     display: inline-block;
     position:relative;
     right: -50%;

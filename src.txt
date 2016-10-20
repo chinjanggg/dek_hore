@@ -1,0 +1,2 @@
+Image Center Fixed
+http://stackoverflow.com/questions/3300660/how-do-i-center-an-image-if-its-wider-than-its-container
